@@ -1,3 +1,20 @@
+#site-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  background-color: #f9f9f9;
+  border-right: 1px solid #ccc; }
+  #site-sidebar a {
+    line-height: 30px;
+    border-bottom: 1px solid #ccc;
+    display: block;
+    padding-left: 10px; }
 
+#site-content {
+  position: relative;
+  margin-left: 250px;
+  width: calc(100%  - $sidebar-width); }
 
 /*# sourceMappingURL=site.css.map */
