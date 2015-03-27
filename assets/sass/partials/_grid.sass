@@ -1,0 +1,30 @@
+@import partials/guff.scss
+.container,
+.row
+	+container
+
+$utility-types: ("margin","padding")
+$utility-directions: ("A":"_", "T":"top", "R":"right", "B":"bottom", "L":"left", "H":"_", "V":"_")
+$utility-sizes: ("n":0, "xxs":5, "xs":10, "s":15, "m":20, "l": 25, "xl":30, "xxl":35)
+
+@each $uType, $_X in $utility-types
+	@each $uDirKey, $uDirVal in $utility-directions
+		@each $uSizeKey, $uSizeVal in $utility-sizes
+			@if $uDirKey == 'A'
+				.u-#{$uType}-#{$uDirKey}-#{$uSizeKey}
+					#{$uType}: #{$uSizeVal}px
+			@else if $uDirKey == "H"
+				.u-#{$uType}-#{$uDirKey}-#{$uSizeKey}
+					#{$uType}-left: #{$uSizeVal}px
+					#{$uType}-right: #{$uSizeVal}px
+			@else if $uDirKey == "V"
+				.u-#{$uType}-#{$uDirKey}-#{$uSizeKey}
+					#{$uType}-top: #{$uSizeVal}px
+					#{$uType}-bottom: #{$uSizeVal}px
+			@else
+				.u-#{$uType}-#{$uDirKey}-#{$uSizeKey}
+					#{$uType}-#{$uDirVal}: #{$uSizeVal}px
+
+$col-sizes: ("sm", "md", "lg")
+.test
+	width: $grid-max-width
